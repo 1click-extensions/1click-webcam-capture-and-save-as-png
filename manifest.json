@@ -1,7 +1,7 @@
   {
-    "name": "1click-webcam-to-png",
+    "name": "1click Webcam to Picture",
     "version": "0.1",
-    "description": "get png file from your webcam",
+    "description": "get image file from your webcam",
     "permissions": [
           "tabs",
           "downloads",
@@ -14,15 +14,9 @@
     "web_accessible_resources":[
       "pages/capture.html"
     ],
-     "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["js/open-webcam.js"]
-      }
-    ],
     "browser_action":{
       "default_icon": "images/browseraction.png",
-      "default_title": "Start picking color"
+      "default_title": "Save picture from webcam"
       },
     "offline_enabled": true,
     "default_locale": "en",
