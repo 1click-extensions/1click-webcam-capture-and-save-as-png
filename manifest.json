@@ -1,0 +1,34 @@
+  {
+    "name": "1click-webcam-to-png",
+    "version": "0.1",
+    "description": "get png file from your webcam",
+    "permissions": [
+          "tabs",
+          "downloads",
+          "videoCapture"
+        ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "web_accessible_resources":[
+      "pages/capture.html"
+    ],
+     "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["js/open-webcam.js"]
+      }
+    ],
+    "browser_action":{
+      "default_icon": "images/browseraction.png",
+      "default_title": "Start picking color"
+      },
+    "offline_enabled": true,
+    "default_locale": "en",
+    "icons": {
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "manifest_version": 2
+  }
