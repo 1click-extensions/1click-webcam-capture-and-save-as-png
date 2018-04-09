@@ -1,3 +1,8 @@
 {
-"Save picture from webcam": {"message": "שמור תמונה ממצלמת רשת" }
+	"browser_action": {"message": "שמור תמונה ממצלמת רשת" },
+	"ext_desc": {"message": "תמונה ממצלמת רשת בלחיצת כפתור" },
+	"ext_name": {"message": "תמונה ממצלמת רשת בלחיצת כפתור" }
+
+
 }
+

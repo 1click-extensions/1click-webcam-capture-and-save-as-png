@@ -1,7 +1,7 @@
   {
-    "name": "1click Webcam to Picture",
+    "name": "__MSG_ext_name__",
     "version": "0.1",
-    "description": "get image file from your webcam",
+    "description": "__MSG_ext_desc__",
     "permissions": [
           "tabs",
           "downloads",
@@ -16,7 +16,7 @@
     ],
     "browser_action":{
       "default_icon": "images/browseraction.png",
-      "default_title": "Save picture from webcam"
+      "default_title": "__MSG_browser_action__"
       },
     "offline_enabled": true,
     "default_locale": "en",
