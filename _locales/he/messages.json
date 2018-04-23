@@ -1,6 +1,8 @@
 {
+	"h2_title": {"message": "צלם תמונה" },
+	"save_picture": {"message": "שמור תמונה" },
 	"browser_action": {"message": "שמור תמונה ממצלמת רשת" },
-	"ext_desc": {"message": "תמונה ממצלמת רשת בלחיצת כפתור" },
+	"ext_desc": {"message": "שמור תמונה ממצלמת הרשת בלחיצת כפתור" },
 	"ext_name": {"message": "תמונה ממצלמת רשת בלחיצת כפתור" }
 
 
