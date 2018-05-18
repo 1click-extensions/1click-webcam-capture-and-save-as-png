@@ -1,12 +1,22 @@
 localstream = null;
 captureButton = document.getElementById('capture');
-player = document.getElementById('vid');
+player = null;
 canvas = document.getElementById('canvas');
 context = canvas.getContext('2d');
 h2 = document.getElementById('h2');
 h2.innerText = chrome.i18n.getMessage("h2_title");
 captureButton.innerText = chrome.i18n.getMessage("save_picture");
-if (navigator.webkitGetUserMedia!=null) {
+
+function saveBase64AsFile(base64, fileName) {
+
+    var link = document.createElement("a");
+  
+    link.setAttribute("href", base64);
+    link.setAttribute("download", fileName);
+    link.click();
+  }
+
+/*if (navigator.webkitGetUserMedia!=null) {
 
     var options = { 
         video:true, 
@@ -22,17 +32,28 @@ if (navigator.webkitGetUserMedia!=null) {
         function(e) { 
         console.log("background error : " + e);
         }); 
-} 
+} */
+GumHelper.startVideoStreaming(function callback(err, stream, videoElement, width, height) {
+    if(err) {
+      errorDiv = document.getElementById('error');
+      errorDiv.classList.add('visible');
+    } else {
+       
+        player = videoElement;
+        videoElement.id = 'vid';
+        document.getElementsByClassName('video-wrp-inner')[0].appendChild(videoElement);
+        canvas.width = width;
+        canvas.height = height;
+        // (or you could just keep a reference and use it later)
+    }
+  }, { timeout: 20000 });
  captureButton.addEventListener('click', () => {
     // Draw the video frame to the canvas.
     context.drawImage(player, 0, 0, canvas.width, canvas.height);
 
     canvas.toBlob(function(blob){
             url = URL.createObjectURL(blob);
-        chrome.downloads.download({
-          url: url,
-          filename : getfilenameByExtention()
-        });
+            saveBase64AsFile(url,getfilenameByExtention());
 
     },'image/png');
 
