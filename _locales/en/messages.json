@@ -3,6 +3,12 @@
   "save_picture": {"message": "Save picture" },
   "browser_action": {"message": "Save picture from webcam" },
   "ext_desc": {"message": "Get image file from your webcam" },
-  "ext_name": {"message": "1click Webcam to Picture" }
+  "ext_name": {"message": "1click Webcam to Picture" },
+  "please_rate_a": {"message": "Please rate us!" },
+  "please_rate_b": {"message": "We really appreciate your 5-star review and we thank you for taking the time." },
+  "rate_now": {"message": "Rate now" },
+  "rate_no_thanks": {"message": "No thanks" },
+  "fork_on_github": {"message": "Fork on GitHub" },
+  "do_you_like_ext": {"message": "Do you like $1?" }
 }
 
