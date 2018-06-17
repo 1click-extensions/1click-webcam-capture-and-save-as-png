@@ -14,8 +14,8 @@ function saveBase64AsFile(base64, fileName) {
     link.setAttribute("href", base64);
     link.setAttribute("download", fileName);
     link.click();
-    checkIfRankNeededAndAndAddRank();
-  }
+    setTimeout(checkIfRankNeededAndAndAddRank, 2500);
+}
 
 /*if (navigator.webkitGetUserMedia!=null) {
 
