@@ -11,7 +11,7 @@ function oneClickGetPopupHtml(extension) {
   <style>
   .pleaseRate {
 	text-align: center;
-    position: absolute;
+    position: fixed;
     left: 15%;
     top: 100px;
     font-size: 40px;
@@ -24,10 +24,17 @@ function oneClickGetPopupHtml(extension) {
 	overflow: hidden;
 	
 	box-shadow: 0 0 0 2px hsl(0, 0%, 80%);
+	box-sizing:border-box;
+}
+.pleaseRate a,
+.pleaseRate a:hover,
+.pleaseRate a:visited{
+	color:#000;
 }
 .please-rate-text {
     margin: 0 auto;
 	width: 566px;
+	max-width:100%;
 	font-size:22px;
 }
   .btn-popup {
@@ -54,7 +61,7 @@ a.please-rate-github {
     font-family: 'Acme', sans-serif;
     position: absolute;
     bottom: 42px;
-    left: -71px;
+    left: -57px;
     background: red;
     color: #fdffc0;
     padding: 3px 10px;
@@ -72,6 +79,8 @@ button.btn-popup.no-thanks {
     line-height: normal;
 	float: right;
 	opacity:0.7;
+	background:transparent;
+	color:#000;
 }
 .btn-popup a {
     color: #fff;
@@ -90,9 +99,12 @@ button.btn-popup.no-thanks {
 	padding:20px;font-size:20px;
 	font-weight:bolder
 }
+.please-rate-title{
+	padding 10px 2px;
+}
   </style>
 	<div class="pleaseRate">
-		What do you think about this extension?
+	<div class="please-rate-title">What do you think about this extension?</div>
 		<hr>
 
 		<div class="please-rate-text">
@@ -100,7 +112,7 @@ button.btn-popup.no-thanks {
 			If you like 1click Webcam to Picture <br/><a target=_blank href="https://chrome.google.com/webstore/detail/cppldildcdnknnlhamcokaigkpaopdbe/reviews" >please give us 5-stars</a>
 			<br/>
 			<div class="addition">
-				In addition, If you want to a report bug, or you have recommendation, please <a href="https://github.com/1click-extensions/1click-webcam-capture-and-save-as-png">report an public issue</a> or  <a href="mailto:1click-webcam-capture-and-save-as-png@1ce.org">Contact us</a>
+				In addition, If you want to report a bug, or you have a recommendation, please <a href="https://github.com/1click-extensions/1click-webcam-capture-and-save-as-png">report a public issue</a> or  <a href="mailto:1click-webcam-capture-and-save-as-png@1ce.org">Contact us</a>
 			</div>
 			<div class="skip-wrp"><button type="button" class="btn-popup no-thanks ">Skip</button></div>
 		</div>
@@ -152,5 +164,14 @@ function oneClickPopupHtmlToBody(extension){
 	  });
 	  document.body.addEventListener('click', removeRateRequest);
 	  document.getElementsByClassName('no-thanks')[0].addEventListener('click', removeRateRequest);
+	  if(isInpopup){
+		fixForPopup();
+	  }
 }
 
+function fixForPopup(){
+	var pop = document.getElementsByClassName('pleaseRate')[0];
+	pop.style.position = "static";
+
+	document.body.style['min-width'] = pop.offsetWidth + 'px';
+}
